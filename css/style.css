@@ -1,0 +1,256 @@
+*{
+    font-family: monospace,sans-serif;
+}
+
+#canvas{
+    width: 960px;
+    height: 1000px;
+    margin: auto auto;
+
+}
+#game_div{
+    width: 960px;
+    height: 460px;
+    background-color: #252850;
+    margin: auto auto;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    position: relative;
+    overflow: hidden;
+
+}
+
+/*steren*/
+
+
+.ster{
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    z-index: 0;
+
+}
+button{
+    width: 960px;
+    height: 20px;
+
+    margin-left: 280px;
+}
+#ster150{
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+
+}
+
+#ster188{
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+
+}
+
+#ster50{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+
+}
+
+/*game*/
+
+
+/* menu buutton*/
+
+
+#menu{
+    width: 50%;
+    background-color: #252850;
+    z-index: 1;
+    top: 150px;
+    position: absolute;
+    opacity: 0.9;
+    left: 25%;
+
+
+}
+#menu h1{
+    color: white;
+    text-align: center;
+    background-color: #4CAF50; /* Green */
+}
+.level{
+    width:100%;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+#back{
+    width:20%;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+
+}
+
+.level:hover {
+    box-shadow: 0 12px 16px 0  #4CAF50,0 17px 50px 0 #4CAF50;;
+}
+
+#select_type{
+    display: none;
+}
+
+/**************** schip *****************************/
+
+.schip{
+    width: 100px;
+    height:80px;
+    background-image: url(../img/ruimteschip.png);
+    position: absolute;
+    display: none;
+    text-align: center;
+    color: #4CAF50;
+    font-size: 21px;
+    cursor: pointer;
+     z-index: 1;
+    
+
+}
+
+#meteoriet{
+    width: 100px;
+    height: 72px;
+    position: absolute;
+    background-image: url(../img/meteoriet.png);
+    bottom: -10px;
+    left: 460px;
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+   display: none;
+    
+}
+#time{
+      width: 80px;
+    height: 72px;
+   
+    position: absolute;
+    bottom: -50px;
+    left: 390px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    display: none;
+   
+}
+#meteoriet p{
+    margin: 5px;
+}
+#time p{
+    margin: 1px;
+}
+
+#fout_houder{
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    color: #4caf50;
+    display: none;
+}
+#tips{
+    width:100px;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: none;
+    z-index: 0;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+#alert_tips,#Game_over{
+    width: 300px;
+    height: 100px;
+    background-color: #4caf50;
+    position: absolute;
+    left: 300px;
+    transition:all 0.5s; 
+    color: #fff;
+    font-size: 50px;
+    text-align: center;
+    z-index: 0;
+    
+}
+.alert_hide{
+    
+    top: -200px;
+}
+
+
+.alert_show{
+    top: 0px;
+}
+
+#reset{
+    position: absolute;
+    bottom: 0;
+     width: 100px;
+    right: 120px;
+     z-index: 0;
+    display: none;
+    
+}
+#Game_over{
+     z-index: 1;
+}
+
+/*exp*/
+
+#exp{
+    width: 50px;
+    height: 50px;
+   background-color: red;
+    display: hidden;
+}
+
+
+
+
+
+

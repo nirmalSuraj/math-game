@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Game Time</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body >
+        <div id="canvas">
+
+            <div id="game_div">
+                <div id='menu'>
+                    <!--    /*levels bepalen*/-->
+                    <div id="select_level">
+                        <h1>kies uw niveau</h1>
+                        <input type="button" value='Level 1' class='level'>
+                        <input type="button" value='Level 2' class='level'>
+                        <input type="button" value='Level 3' class='level'>
+                    </div>
+                    <div id='select_type'>
+                        <h1>Kies een rekenoefening</h1> 
+                        <input type='button' value='Optellen' class='level'>
+                        <input type='button' value='Aftrekken' class='level'>
+                        <input type='button' value='Tafels' class='level'>
+                        <input type='button' value='terug' id='back' class='level'>
+
+                    </div>
+
+
+                </div>
+
+                <div class="schip"><p></p>   <input type="hidden" value=''>  </div>
+                <div class="schip"><p></p>   <input type="hidden" value=''>  </div>
+                <div class="schip"><p></p>    <input type="hidden" value=''>  </div>
+                <div class="schip"><p></p>     <input type="hidden" value=''> </div>
+                <div class="schip"><p></p>     <input type="hidden" value=''> </div>
+                <div class="schip"><p></p>     <input type="hidden" value=''> </div>
+                <div class="schip"><p></p>     <input type="hidden" value=''> </div>
+                <div class="schip"><p></p>     <input type="hidden" value=''> </div>
+                <div class="schip"><p></p>    <input type="hidden" value=''>  </div>
+                <div class="schip"><p></p>    <input type="hidden" value=''>  </div>
+                <div id="exp"> </div>
+                <div id="fout_houder">
+                    <p>LEVENS: <label>3</label> </p>
+                </div>
+                <div id="meteoriet"><p></p></div>
+                <div id="time"><p>0:0 min</p></div>
+                <input type="button" value='tips' id='tips' class="buttons" >
+                <div  id='alert_tips' class='alert_hide'></div>
+                 <input type="button" value='Reset' id='reset' class="level" >
+                 <div id="Game_over" class='alert_hide'>
+                    <p>Game over <label></label> </p>
+                </div>
+
+            </div>
+        </div>
+
+
+ <script src="https://code.createjs.com/1.0.0/soundjs.min.js"></script>
+        <script src="js/sterren.js"></script>
+        <script src="js/game.js"></script>
+    </body>
+
+</html>
