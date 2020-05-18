@@ -53,7 +53,10 @@
         id=["shoot","intro","click","error2","gameover","goodjob"],
         sec=0,
         min=0,
-        timer_start;
+        timer_start,
+        stop_schip=[],
+        hide=[],
+        stop_t;
 
 
 
@@ -140,17 +143,28 @@
 
     //antwoord van gebuiker verglijken het antw
     function vergelijk_waarde(e){
-
+        let index;
         //als als het klik waarde is gelijk aan antwoord dan verwijder deze div 
         if(this.firstElementChild.nextElementSibling.value == Number(meteoriet.firstElementChild.innerHTML)){
+            this.style.backgroundImage = "url('img/exp.gif')";
+            this.style.backgroundPosition = "center";
+            this.firstElementChild.style.display="none";
+            index=this.firstElementChild.nextElementSibling.nextElementSibling.value;
+            stop_schip[index]=true;
+
             play_sound("shoot");
             show_schip=false;
-            this.style.display="none";
+            //this.style.display="none";
+            setTimeout(()=>(schip[index].style.display="none"),500)
             stel_vraag=true;
+
             //hide alert_div indien zichtbaar is 
             hide_tip_f()
             //optellen hoeveel antworden dat de speler juist heeft
             punten++;
+
+
+
 
         }else{
             play_sound("error2");
@@ -200,40 +214,76 @@
                 antwholder,
                 eerste =get_reken_getal(l,symbool),
                 tweede =get_reken_getal(l,symbool);
+
             if(symbool == "Optellen"){
 
                 holder=eerste+"+"+tweede;
                 antwholder=eerste+tweede;
+                while(antw.includes(antwholder)){
+                    eerste =get_reken_getal(l,symbool),
+                        tweede =get_reken_getal(l,symbool);
+                    holder=eerste+"+"+tweede;
+                    antwholder=eerste+tweede;
+                }
+
                 vhd.push(holder)
                 antw.push(antwholder)
+
 
 
             }
             if(symbool == "Aftrekken"){
-                /* om negatieve getallen te vermijden moet wij er voor zorgen dat eerste aftrekgetal kleiner is dan tweede*/
 
-                //als 
-                while(eerste < tweede){
-                    eerste =get_reken_getal(l,symbool);
-                }
                 holder=eerste+"-"+tweede;
                 antwholder=eerste-tweede;
+
+                while(antw.includes(antwholder) || eerste <= tweede){
+
+                    eerste =get_reken_getal(l,symbool);
+                    tweede =get_reken_getal(l,symbool);
+
+
+                    /* om negatieve getallen te vermijden moet wij er voor zorgen dat eerste aftrekgetal kleiner is dan tweede*/
+
+
+
+                    holder=eerste+"-"+tweede;
+                    antwholder=eerste-tweede;
+                }
+
+
+
+
                 vhd.push(holder)
                 antw.push(antwholder)
+
 
             }
 
             if(symbool == "Tafels"){
-                vhd.push(eerste+"X"+tweede)
+
+                holder=eerste+"X"+tweede;
                 antwholder=eerste*tweede;
+                while(antw.includes(antwholder)){
+
+                    eerste =get_reken_getal(l,symbool);
+                    tweede =get_reken_getal(l,symbool);
+                    holder=eerste+"X"+tweede;
+                    antwholder=eerste*tweede;
+                }
+
+
+                vhd.push(holder)
                 antw.push(antwholder)
+
+
 
             }
 
 
         }
 
-
+        console.log(antw)
     }
     /*******************rest *************************************************************************************************/
 
@@ -282,7 +332,8 @@
         index.style.top=div_heigth +'px';
 
 
-
+        stop_schip[i]=false;
+        hide[i]=0;
         dh[i]=div_heigth;
         dw[i]=div_width;
 
@@ -350,14 +401,17 @@
             }
 
 
+            if(!stop_schip[i]){
+                index.style.top=dh[i]+'px';
+                index.style.left=dw[i]+'px';
 
-            index.style.top=dh[i]+'px';
-            index.style.left=dw[i]+'px';
+            }
 
             if(vhd.length <= 10){
 
                 index.firstElementChild.innerHTML=vhd[i];
                 index.firstElementChild.nextElementSibling.value=antw[i];
+                index.firstElementChild.nextElementSibling.nextElementSibling.value=i;
 
 
             } 
